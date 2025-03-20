@@ -281,7 +281,15 @@
         align-items: center;
         gap: 40px;
       }
-      
+
+      .profile-container {
+        order: -1;
+      }
+
+      .hero-content {
+        text-align: left;
+      }
+          
       .social-links {
         display: flex;
         gap: 20px;
@@ -665,15 +673,23 @@
     <!-- Hero Section -->
     <section class="hero" id="about">
       <div class="container hero-grid">
-        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+        
+        <!-- Profile Image (Now on Left) -->
+        <div class="profile-container" data-aos="fade-right" data-aos-duration="1000">
+          <div class="profile-circle"></div>
+          <img src="photo.jpg" alt="Yav Rohatgi" class="profile-image" />
+        </div>
+
+        <!-- Hero Text (Now on Right) -->
+        <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
           <div class="hero-subtitle">Aspiring Computer Engineer</div>
           <h1>Yav Rohatgi</h1>
           <p class="hero-text">
             I am a senior computer engineering student at the University of Massachusetts Amherst 
-            with interests in generative AI, machine learning and cloud computing.<br><br>
+            with interests in generative AI, machine learning, and cloud computing.<br><br>
             I am passionate about developing innovative and scalable AI solutions for real-world applications 
-            and currently seeking full time opportunities to contribute to impactful projects.<br><br>
-            Lets connect and build something amazing together!
+            and currently seeking full-time opportunities to contribute to impactful projects.<br><br>
+            Let's connect and build something amazing together!
           </p>
           <div class="social-links">
             <a href="mailto:yrohatgi@umass.edu" class="social-link" aria-label="Email">
@@ -687,12 +703,10 @@
             </a>
           </div>
         </div>
-        <div class="profile-container" data-aos="fade-left" data-aos-duration="1000">
-          <div class="profile-circle"></div>
-          <img src="photo.jpg" alt="Yav Rohatgi" class="profile-image" />
-        </div>
+        
       </div>
     </section>
+
 
     <!-- Experience Section -->
     <section id="experience">
