@@ -300,17 +300,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 50px;
+        width: 60px; /* Increased from 50px */
+        height: 60px; /* Increased from 50px */
         border-radius: 50%;
         background: var(--dark-light);
         color: var(--light);
-        font-size: 1.2rem;
+        font-size: 1.8rem; /* Increased from 1.2rem */
         text-decoration: none;
         transition: all 0.3s ease;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       }
-      
+
       .social-link:hover {
         transform: translateY(-5px);
         background: var(--gradient);
@@ -377,6 +377,16 @@
         color: var(--secondary);
         font-size: 0.9rem;
         margin-bottom: 0.8rem;
+      }
+
+      .card-subtitle a {
+        color: inherit; /* Inherits the color from the parent */
+        text-decoration: none; /* Removes default underline */
+        font-weight: inherit; /* Keeps the same font style */
+      }
+
+      .card-subtitle a:hover {
+        text-decoration: underline; /* Underline on hover */
       }
       
       .card-date {
@@ -650,6 +660,24 @@
         .skills-grid {
           grid-template-columns: 1fr;
         }
+
+        .theme-toggle {
+          background: var(--gradient);
+          border: none;
+          padding: 10px 20px;
+          border-radius: 20px;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          color: white;
+          transition: all 0.3s ease;
+          margin-left: 20px;
+        }
+
+        .theme-toggle:hover {
+          transform: scale(1.1);
+        }
+
       }
     </style>
   </head>
@@ -657,7 +685,7 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container nav-container">
-        <a href="#" class="logo">Yav Rohatgi</a>
+        <a href="#" class="logo">YR</a>
         <button class="nav-toggle" id="navToggle">
           <i class="fas fa-bars"></i>
         </button>
@@ -682,13 +710,13 @@
 
         <!-- Hero Text (Now on Right) -->
         <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
-          <div class="hero-subtitle">Aspiring Computer Engineer</div>
+          <div class="hero-subtitle">Computer Engineer</div>
           <h1>Yav Rohatgi</h1>
           <p class="hero-text">
-            I am a senior computer engineering student at the University of Massachusetts Amherst 
+            I am currently a senior computer engineering student at the University of Massachusetts Amherst 
             with interests in generative AI, machine learning, and cloud computing.<br><br>
-            I am passionate about developing innovative and scalable AI solutions for real-world applications 
-            and currently seeking full-time opportunities to contribute to impactful projects.<br><br>
+            I am passionate about developing innovative and scalable AI solutions for real world applications 
+            and currently seeking full time opportunities to contribute to impactful projects.<br><br>
             Let's connect and build something amazing together!
           </p>
           <div class="social-links">
@@ -717,7 +745,9 @@
           <div class="card" data-aos="fade-up" data-aos-delay="100">
             <div class="card-header">
               <h3 class="card-title">Systems Engineer Intern</h3>
-              <div class="card-subtitle">Sonet.io</div>
+              <div class="card-subtitle">
+                <a href="https://www.sonet.io" target="_blank">Sonet.io</a>
+              </div>              
               <div class="card-date">May 2024 – Aug 2024</div>
             </div>
             <div class="tech-tags">
@@ -737,7 +767,9 @@
           <div class="card" data-aos="fade-up" data-aos-delay="200">
             <div class="card-header">
               <h3 class="card-title">Software Engineering Intern</h3>
-              <div class="card-subtitle">Samsung Data Systems</div>
+              <div class="card-subtitle">
+                <a href="https://www.samsungsds.com/in/index.html" target="_blank">Samsung Data Systems</a>
+              </div>              
               <div class="card-date">May 2023 – Aug 2023</div>
             </div>
             <div class="tech-tags">
@@ -757,7 +789,9 @@
           <div class="card" data-aos="fade-up" data-aos-delay="300">
             <div class="card-header">
               <h3 class="card-title">Undergraduate Instructional Assistant</h3>
-              <div class="card-subtitle">College of Engineering at UMass Amherst</div>
+              <div class="card-subtitle">
+                <a href="https://www.umass.edu/engineering/" target="_blank">College of Engineering at UMass Amherst</a>
+              </div>  
               <div class="card-date">Sept 2023 – Dec 2024</div>
             </div>
             <div class="tech-tags">
@@ -818,7 +852,9 @@
           <div class="card" data-aos="fade-up" data-aos-delay="200">
             <div class="card-header">
               <h3 class="card-title">AI Assisted Approach to Math Tutoring</h3>
-              <div class="card-subtitle">Research with Professor Lixin Gao</div>
+              <div class="card-subtitle">
+                Research with&nbsp;<a href="https://www.umass.edu/engineering/about/directory/lixin-gao">Professor Lixin Gao</a>
+              </div>              
             </div>
             <div class="tech-tags">
               <div class="tag">LangChain</div>
@@ -858,7 +894,7 @@
               <div class="tag">Multi-Threading</div>
             </div>
             <ul class="card-list">
-              <li>Developed a thread library for multiple threads with ucontext, FIFO scheduling, Mesa-style condition variables, and simulated interrupts</li>
+              <li>Developed a thread library for multiple threads with ucontext, FIFO scheduling, Mesa-style condition variables, and interrupts</li>
               <li>Built a disk scheduler using SSTF, synchronizing multiple threads with monitors while managing a bounded queue of 1000 requests</li>
             </ul>
           </div>
@@ -924,7 +960,6 @@
                 <div class="skill-item">Kubernetes</div>
                 <div class="skill-item">Docker</div>
                 <div class="skill-item">OpenAI API</div>
-                <div class="skill-item">JAX</div>
                 <div class="skill-item">Hugging Face</div>
               </div>
             </div>
