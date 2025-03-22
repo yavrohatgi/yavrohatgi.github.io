@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yav Rohatgi - Computer Engineer</title>
+    <title>Yav Rohatgi Personal Website</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,6 +29,7 @@
          Variables
       ===================== */
       :root {
+        /* Theme colors - will be overridden in light mode */
         --primary: #7b52eb;
         --primary-dark: #6039e0;
         --secondary: #18cae8;
@@ -37,6 +38,17 @@
         --light: #f8fafc;
         --gray: #94a3b8;
         --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        
+        /* Theme transition */
+        --transition-speed: 0.3s;
+      }
+      
+      /* Light Theme Variables */
+      body.light-theme {
+        --dark: #ffffff;
+        --dark-light: #f1f5f9;
+        --light: #0f172a;
+        --gray: #64748b;
       }
 
       /* =====================
@@ -59,6 +71,8 @@
         color: var(--light);
         line-height: 1.7;
         overflow-x: hidden;
+        transition: background-color var(--transition-speed) ease,
+                    color var(--transition-speed) ease;
       }
       
       .container {
@@ -70,6 +84,7 @@
       section {
         padding: 100px 0;
         position: relative;
+        transition: background-color var(--transition-speed) ease;
       }
       
       /* =====================
@@ -112,10 +127,12 @@
         font-size: 1.5rem;
         color: var(--light);
         margin-bottom: 0.5rem;
+        transition: color var(--transition-speed) ease;
       }
       
       p {
         margin-bottom: 1rem;
+        transition: color var(--transition-speed) ease;
       }
       
       /* =====================
@@ -127,10 +144,15 @@
         left: 0;
         width: 100%;
         z-index: 1000;
-        background: rgba(15, 23, 42, 0.9);
+        background: var(--dark);
         backdrop-filter: blur(10px);
         padding: 15px 0;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease, background var(--transition-speed) ease;
+      }
+      
+      body.light-theme .navbar {
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       }
       
       .navbar.scrolled {
@@ -138,11 +160,32 @@
         padding: 10px 0;
       }
       
+      body.light-theme .navbar.scrolled {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
       .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: relative;
+      }
+      
+      /* Center navigation links */
+      .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      
+      /* Right side elements */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
       }
       
       .logo {
@@ -163,12 +206,16 @@
         color: var(--light);
         font-size: 1.5rem;
         cursor: pointer;
+        transition: color var(--transition-speed) ease;
       }
       
-      .nav-links {
-        display: flex;
-        gap: 30px;
+      @media (min-width: 769px) {
+        .nav-right {
+          margin-left: auto;
+        }
       }
+      
+
       
       .nav-links a {
         color: var(--light);
@@ -176,7 +223,8 @@
         font-weight: 500;
         position: relative;
         padding: 5px 0;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
+        font-size: 1.2rem; /* Increased size */
       }
       
       .nav-links a::after {
@@ -192,10 +240,39 @@
       
       .nav-links a:hover {
         color: var(--secondary);
+        transform: translateY(-3px);
       }
       
       .nav-links a:hover::after {
         width: 100%;
+      }
+      
+      /* Theme Toggle Button */
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--dark-light);
+        color: var(--light);
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        margin-left: 20px;
+        transition: all 0.3s ease, background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      }
+
+      body.light-theme .theme-toggle {
+        background: rgba(240, 240, 240, 0.8);
+      }
+      
+      .theme-toggle:hover {
+        transform: translateY(-5px) !important;
+        background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+        color: white !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       }
       
       /* =====================
@@ -262,6 +339,10 @@
         box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
       }
       
+      body.light-theme .profile-image {
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+      }
+      
       .profile-circle {
         position: absolute;
         width: 400px;
@@ -300,20 +381,34 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 60px; /* Increased from 50px */
-        height: 60px; /* Increased from 50px */
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         background: var(--dark-light);
         color: var(--light);
-        font-size: 1.8rem; /* Increased from 1.2rem */
+        font-size: 1.8rem;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease, background var(--transition-speed) ease, color var(--transition-speed) ease;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Make theme toggle match social links in size on mobile */
+      @media (max-width: 768px) {
+        .theme-toggle {
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      body.light-theme .social-link {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
       }
 
       .social-link:hover {
-        transform: translateY(-5px);
-        background: var(--gradient);
+        transform: translateY(-5px) !important;
+        background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+        color: white !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       }
       
       .cta-btn {
@@ -348,15 +443,23 @@
         padding: 30px;
         position: relative;
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-speed) ease, border-left-color var(--transition-speed) ease;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         border-left: 3px solid transparent;
+      }
+      
+      body.light-theme .card {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
       }
       
       .card:hover {
         transform: translateY(-5px);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         border-left: 3px solid var(--primary);
+      }
+      
+      body.light-theme .card:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
       }
       
       .card-header {
@@ -369,6 +472,7 @@
         font-weight: 600;
         margin-bottom: 0.5rem;
         position: relative;
+        transition: color var(--transition-speed) ease;
       }
       
       .card-subtitle {
@@ -380,19 +484,20 @@
       }
 
       .card-subtitle a {
-        color: inherit; /* Inherits the color from the parent */
-        text-decoration: none; /* Removes default underline */
-        font-weight: inherit; /* Keeps the same font style */
+        color: inherit;
+        text-decoration: none;
+        font-weight: inherit;
       }
 
       .card-subtitle a:hover {
-        text-decoration: underline; /* Underline on hover */
+        text-decoration: underline;
       }
       
       .card-date {
         color: var(--gray);
         font-size: 0.85rem;
         font-style: italic;
+        transition: color var(--transition-speed) ease;
       }
       
       .card-list {
@@ -406,6 +511,7 @@
         padding-left: 30px;
         margin-bottom: 10px;
         color: var(--light);
+        transition: color var(--transition-speed) ease;
       }
       
       .card-list li::before {
@@ -430,6 +536,11 @@
         font-size: 0.75rem;
         font-weight: 500;
         color: var(--secondary);
+        transition: background var(--transition-speed) ease;
+      }
+      
+      body.light-theme .tag {
+        background: rgba(123, 82, 235, 0.1);
       }
       
       /* =====================
@@ -440,6 +551,11 @@
         border-radius: 15px;
         padding: 30px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      }
+      
+      body.light-theme .skills-container {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
       }
       
       .skills-grid {
@@ -483,7 +599,7 @@
         border-radius: 20px;
         font-size: 0.85rem;
         color: var(--light);
-        transition: all 0.3s ease;
+        transition: all 0.3s ease, background var(--transition-speed) ease, color var(--transition-speed) ease;
       }
       
       .skill-item:hover {
@@ -499,6 +615,7 @@
         padding: 50px 0 20px;
         position: relative;
         overflow: hidden;
+        transition: background-color var(--transition-speed) ease;
       }
       
       footer::before {
@@ -534,6 +651,7 @@
         color: var(--gray);
         max-width: 400px;
         margin: 0 auto 20px;
+        transition: color var(--transition-speed) ease;
       }
       
       .footer-social {
@@ -554,12 +672,13 @@
       }
       
       .footer-bottom {
-        padding: 5px 0; /* Reduce padding even further */
-        margin-top: 0px; /* Remove extra margin */
-        font-size: 1rem; /* Adjust text size */
+        padding: 5px 0;
+        margin-top: 0px;
+        font-size: 1rem;
         text-align: center;
         color: var(--gray);
-        border-top: none; /* Ensure no unnecessary border */
+        border-top: none;
+        transition: color var(--transition-speed) ease;
       }
       
       /* =====================
@@ -632,9 +751,7 @@
           height: 300px;
         }
         
-        .nav-toggle {
-          display: block;
-        }
+
         
         .nav-links {
           position: absolute;
@@ -642,14 +759,18 @@
           left: 0;
           width: 100%;
           flex-direction: column;
-          background: var(--dark-light);
+          background: var(--dark);
           padding: 20px;
           gap: 15px;
           border-radius: 0 0 10px 10px;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
           transform: translateY(-200%);
-          transition: transform 0.3s ease;
+          transition: transform 0.3s ease, background-color var(--transition-speed) ease;
           z-index: -1;
+        }
+        
+        body.light-theme .nav-links {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
         
         .nav-links.active {
@@ -657,27 +778,21 @@
           z-index: 10;
         }
         
+        .nav-toggle {
+          display: block;
+        }
+        
         .skills-grid {
           grid-template-columns: 1fr;
         }
 
-        .theme-toggle {
-          background: var(--gradient);
-          border: none;
-          padding: 10px 20px;
-          border-radius: 20px;
-          cursor: pointer;
-          font-size: 1rem;
-          font-weight: 600;
-          color: white;
-          transition: all 0.3s ease;
-          margin-left: 20px;
+        .nav-right {
+          display: flex;
+          width: 100%;
+          justify-content: flex-end;
+          margin-top: 20px;
+          gap: 15px;
         }
-
-        .theme-toggle:hover {
-          transform: scale(1.1);
-        }
-
       }
     </style>
   </head>
@@ -686,14 +801,19 @@
     <nav class="navbar">
       <div class="container nav-container">
         <a href="#" class="logo">YR</a>
-        <button class="nav-toggle" id="navToggle">
-          <i class="fas fa-bars"></i>
-        </button>
         <div class="nav-links" id="navLinks">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
+        </div>
+        <div class="nav-right">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
     </nav>
@@ -1016,7 +1136,43 @@
 
 <!-- AOS Animation Script -->
 <script>
+  // Initialize AOS animations
   AOS.init();
+
+  // Get theme toggle button
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = themeToggle.querySelector('i');
+  
+  // Check for saved theme preference or set default dark theme
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  
+  // Apply saved theme
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
+  } else {
+    document.body.classList.remove('light-theme');
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+  }
+  
+  // Theme toggle functionality
+  themeToggle.addEventListener('click', () => {
+    // Toggle theme class on body
+    document.body.classList.toggle('light-theme');
+    
+    // Update icon
+    if (document.body.classList.contains('light-theme')) {
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+      localStorage.setItem('theme', 'light');
+    } else {
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
 
   // Navbar Toggle
   const navToggle = document.getElementById('navToggle');
