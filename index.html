@@ -448,15 +448,20 @@
         box-shadow: var(--shadow-xl);
         transition: transform 0.5s var(--transition-ease);
       }
-      
-      .profile-image:hover {
-        transform: scale(1.03);
+
+      @keyframes pulse-reverse {
+        0% {
+          transform: scale(1.03);
+        }
+        100% {
+          transform: scale(1.07);
+        }
       }
       
       .profile-circle {
         position: absolute;
-        width: 400px;
-        height: 400px;
+        width: 410px;
+        height: 410px;
         border-radius: 50%;
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         opacity: 0.6;
@@ -466,27 +471,6 @@
         animation: pulse 6s infinite alternate;
       }
       
-      .profile-circle::after {
-        content: '';
-        position: absolute;
-        top: -20px;
-        left: -20px;
-        right: -20px;
-        bottom: -20px;
-        border-radius: 50%;
-        border: 3px solid var(--secondary);
-        opacity: 0.3;
-        animation: pulse-reverse 8s infinite alternate;
-      }
-      
-      @keyframes pulse-reverse {
-        0% {
-          transform: scale(0.97);
-        }
-        100% {
-          transform: scale(1.03);
-        }
-      }
       
       .hero-grid {
         display: grid;
@@ -1515,8 +1499,8 @@
            force skills 1-column.
         ============================ */
         .timeline-container::before {
-          left: 20px;
-          margin-left: 0;
+          left: 20px !important;
+          margin-left: 0 !important;
         }
         .timeline-item {
           width: 100% !important;
@@ -2088,7 +2072,7 @@
       // Typed.js Initialization
       document.addEventListener('DOMContentLoaded', function() {
         new Typed('#typing-text', {
-          strings: ['generative AI', 'machine learning', 'cloud computing', 'embedded systems'],
+          strings: ['generative AI.  ', 'machine learning.  ', 'cloud computing.  '],
           typeSpeed: 50,
           backSpeed: 30,
           backDelay: 2000,
