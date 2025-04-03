@@ -1119,9 +1119,9 @@
         border-left: 3px solid var(--primary);
       }
 
-      /* 
+      /*
        * Updated card-header styling:
-       * We place date on left, title on right. 
+       * Date on the left, title on the right.
        */
       .card-header {
         margin-bottom: 1rem;
@@ -1147,7 +1147,6 @@
         white-space: nowrap;
         transition: all 0.3s var(--transition-ease);
         border: 1px solid rgba(24, 202, 232, 0.2);
-        /* No margin-left since it’s now on the left side */
       }
 
       .card:hover .card-date {
@@ -1325,8 +1324,7 @@
       ===================== */
       @media (max-width: 1200px) {
         .skills-container {
-          grid-template-columns: 1fr;
-          gap: 60px;
+          /* No direct .skills-grid changes here */
         }
         
         .skills-text {
@@ -1509,6 +1507,34 @@
           font-size: 0.9rem;
           min-width: 100px;
         }
+
+        /* ============================
+           ADDED FOR MOBILE FIX
+           Force timeline single-column,
+           move line to left, and
+           force skills 1-column.
+        ============================ */
+        .timeline-container::before {
+          left: 20px;
+          margin-left: 0;
+        }
+        .timeline-item {
+          width: 100% !important;
+          left: 0 !important;
+          padding-left: 60px !important; 
+          padding-right: 20px;
+        }
+        .timeline-item:nth-child(even) {
+          left: 0 !important;
+        }
+        .timeline-item:nth-child(odd)::after,
+        .timeline-item:nth-child(even)::after {
+          left: 7px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr; /* Single column on phones */
+        }
       }
       
       @media (max-width: 480px) {
@@ -1534,19 +1560,7 @@
         .form-input, .form-textarea {
           padding: 10px;
         }
-        
-        .timeline-item {
-          padding-left: 60px;
-        }
-        
-        .timeline-container::after {
-          left: 20px;
-        }
-        
-        .timeline-item:nth-child(odd)::after,
-        .timeline-item:nth-child(even)::after {
-          left: 7px;
-        }
+        /* (Timeline logic removed here so the above 768px rules handle phone layout) */
       }
 
       /* Make the timeline circles cyan and remove the line */
@@ -1666,16 +1680,14 @@
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
               <div class="card-header">
-                <!-- Date on left -->
-                <div class="card-date">May 2024 – Aug 2024</div>
                 
-                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">DevOps Engineer Intern</h3>
                   <div class="card-subtitle">
                     <a href="https://www.sonet.io" target="_blank">Sonet.io</a>
                   </div>
                 </div>
+                <div class="card-date">May 2024 – Aug 2024</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">PowerShell</div>
@@ -1695,16 +1707,13 @@
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
               <div class="card-header">
-                <!-- Date on left -->
-                <div class="card-date">May 2023 – Aug 2023</div>
-                
-                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">Software Engineering Intern</h3>
                   <div class="card-subtitle">
                     <a href="https://www.samsungsds.com/in/index.html" target="_blank">Samsung Data Systems</a>
                   </div>
                 </div>
+                <div class="card-date">May 2023 – Aug 2023</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">Natural Language Processing (NLP)</div>
@@ -1724,16 +1733,13 @@
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
               <div class="card-header">
-                <!-- Date on the left -->
-                <div class="card-date">Sept 2023 – Dec 2023</div>
-                
-                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">Undergraduate Instructional Assistant</h3>
                   <div class="card-subtitle">
                     <a href="https://www.umass.edu/engineering/" target="_blank">College of Engineering at UMass Amherst</a>
                   </div>
                 </div>
+                <div class="card-date">Sept 2023 – Dec 2023</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">MATLAB</div>
@@ -1750,14 +1756,11 @@
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
             <div class="card">
               <div class="card-header">
-                <!-- Date on the left -->
-                <div class="card-date">Sept 2023 – May 2024</div>
-                
-                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">Event Organizer</h3>
                   <div class="card-subtitle">HackUMass 2023 & HackHer 2024</div>
                 </div>
+                <div class="card-date">Sept 2023 – May 2024</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">Leadership</div>
