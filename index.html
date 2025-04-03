@@ -272,6 +272,8 @@
       
       /* Right side elements */
       .nav-right {
+        position: relative;
+        z-index: 1001;
         display: flex;
         align-items: center;
         gap: 15px;
@@ -385,7 +387,7 @@
         min-height: 100vh;
         display: flex;
         align-items: center;
-        padding-top: 80px;
+        padding-top: 100px;
         position: relative;
         overflow: hidden;
       }
@@ -640,26 +642,25 @@
         margin-bottom: 40px;
       }
       
-      /* Modified: Increased button size */
       .filter-btn {
-        padding: 12px 30px; /* Increased from 8px 20px */
+        padding: 12px 30px;
         background: var(--dark-light);
         border: none;
         border-radius: var(--radius-full);
         color: var(--light);
-        font-weight: 600; /* Increased from 500 */
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.3s var(--transition-ease);
-        font-size: 1.1rem; /* Added font-size */
-        min-width: 120px; /* Added minimum width */
-        text-align: center; /* Ensure text is centered */
+        font-size: 1.1rem;
+        min-width: 120px;
+        text-align: center;
       }
       
       .filter-btn:hover, .filter-btn.active {
         background: var(--gradient);
         color: white;
         box-shadow: var(--shadow-md);
-        transform: translateY(-3px); /* Added transform on hover */
+        transform: translateY(-3px);
       }
       
       .projects-grid {
@@ -1126,17 +1127,21 @@
         box-shadow: var(--shadow-xl);
         border-left: 3px solid var(--primary);
       }
-      
-      /* Modified: Card header with timeline on right */
+
+      /* 
+       * Updated card-header styling:
+       * We place date on left, title on right. 
+       */
       .card-header {
         margin-bottom: 1rem;
         position: relative;
         z-index: 1;
         display: flex;
-        justify-content: space-between;
         align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1rem; /* space between date and title */
       }
-      
+
       .card-title-container {
         flex: 1;
       }
@@ -1148,12 +1153,12 @@
         padding: 6px 14px;
         background-color: rgba(24, 202, 232, 0.1);
         border-radius: var(--radius-full);
-        margin-left: 15px;
         white-space: nowrap;
         transition: all 0.3s var(--transition-ease);
         border: 1px solid rgba(24, 202, 232, 0.2);
+        /* No margin-left since it’s now on the left side */
       }
-      
+
       .card:hover .card-date {
         background-color: var(--primary);
         color: white;
@@ -1488,7 +1493,7 @@
           opacity: 0;
           transition: transform 0.3s var(--transition-ease), opacity 0.3s var(--transition-ease);
           box-shadow: var(--shadow-lg);
-          z-index: 1000;
+          z-index: 999;
         }
         
         body.light-theme .nav-links {
@@ -1508,7 +1513,6 @@
           grid-template-columns: 1fr;
         }
         
-        /* Responsive filter buttons */
         .filter-btn {
           padding: 10px 20px;
           font-size: 0.9rem;
@@ -1556,57 +1560,39 @@
 
       /* Make the timeline circles cyan and remove the line */
       .timeline-item::after {
-        background: #0f172a !important; /* Dark background matching page */
-        border: 4px solid #18cae8 !important; /* Cyan border */
-        z-index: 100 !important; /* Very high z-index */
-        box-shadow: 0 0 0 5px #0f172a !important; /* Shadow matching background color */
+        background: #0f172a !important;
+        border: 4px solid #18cae8 !important;
+        z-index: 100 !important;
+        box-shadow: 0 0 0 5px #0f172a !important;
       }
 
       .timeline-item:hover::after {
-        background: #18cae8 !important; /* Cyan background on hover */
+        background: #18cae8 !important;
       }
 
-      /* Replace the continuous line with a new one that doesn't go through circles */
+      /* Remove the original timeline line */
       .timeline-container::after {
-        display: none !important; /* Remove the original line */
+        display: none !important;
       }
 
-      /* Create a new timeline line with CSS */
+      /* Create a new vertical timeline line */
       .timeline-container::before {
         content: '';
         position: absolute;
         width: 4px;
         background: linear-gradient(to bottom, #7b52eb, #18cae8);
-        top: 28px; /* Position it to start below the first circle */
-        bottom: 28px; /* End above the last circle */
+        top: 28px;
+        bottom: 28px;
         left: 50%;
         margin-left: -2px;
         border-radius: 4px;
         z-index: 1;
       }
 
-      /* Timeline item adjustments */
-      .timeline-item {
-        position: relative;
-        z-index: 10;
-      }
-
-      @media (max-width: 1024px) {
-        .timeline-container::before {
-          left: 40px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .timeline-container::before {
-          left: 20px;
-        }
-      }
-
       /* Skills hover state */
       .skill-item:hover {
         background: var(--secondary) !important; /* Light blue background */
-        color: white !important; /* White text for best contrast */
+        color: white !important;
         transform: translateY(-3px);
         box-shadow: var(--shadow-md);
       }
@@ -1686,17 +1672,20 @@
       <div class="container">
         <h2 data-aos="fade-up">Work Experience</h2>
         <div class="timeline-container">
-          <!-- Timeline Item 1 -->
+          <!-- Timeline Item 1 (Date on the LEFT, Title on the RIGHT) -->
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
               <div class="card-header">
+                <!-- Date on left -->
+                <div class="card-date">May 2024 – Aug 2024</div>
+                
+                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">DevOps Engineer Intern</h3>
                   <div class="card-subtitle">
                     <a href="https://www.sonet.io" target="_blank">Sonet.io</a>
-                  </div>              
+                  </div>
                 </div>
-                <div class="card-date">May 2024 – Aug 2024</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">PowerShell</div>
@@ -1716,13 +1705,16 @@
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
               <div class="card-header">
+                <!-- Date on left -->
+                <div class="card-date">May 2023 – Aug 2023</div>
+                
+                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">Software Engineering Intern</h3>
                   <div class="card-subtitle">
                     <a href="https://www.samsungsds.com/in/index.html" target="_blank">Samsung Data Systems</a>
-                  </div>              
+                  </div>
                 </div>
-                <div class="card-date">May 2023 – Aug 2023</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">Natural Language Processing (NLP)</div>
@@ -1742,13 +1734,16 @@
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
               <div class="card-header">
+                <!-- Date on the left -->
+                <div class="card-date">Sept 2023 – Dec 2023</div>
+                
+                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">Undergraduate Instructional Assistant</h3>
                   <div class="card-subtitle">
                     <a href="https://www.umass.edu/engineering/" target="_blank">College of Engineering at UMass Amherst</a>
                   </div>
                 </div>
-                <div class="card-date">Sept 2023 – Dec 2024</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">MATLAB</div>
@@ -1765,11 +1760,14 @@
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
             <div class="card">
               <div class="card-header">
+                <!-- Date on the left -->
+                <div class="card-date">Sept 2023 – May 2024</div>
+                
+                <!-- Title & Subtitle on the right -->
                 <div class="card-title-container">
                   <h3 class="card-title">Event Organizer</h3>
                   <div class="card-subtitle">HackUMass 2023 & HackHer 2024</div>
                 </div>
-                <div class="card-date">Sept 2023 – May 2024</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">Leadership</div>
@@ -1790,7 +1788,6 @@
       <div class="container">
         <h2 data-aos="fade-up">Featured Projects</h2>
         
-        <!-- Updated Project Filters -->
         <div class="project-filters" data-aos="fade-up">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="aiml">AI/ML</button>
@@ -1799,7 +1796,6 @@
           <button class="filter-btn" data-filter="blockchain">Blockchain</button>
         </div>
         
-        <!-- Updated Project Cards with correct categories -->
         <div class="projects-grid">
           <!-- Project Card 1: Sign Detection Gloves (AI/ML and Embedded) -->
           <div class="project-card" data-category="aiml embedded" data-aos="fade-up" data-aos-delay="100" data-project-id="1">
@@ -1947,7 +1943,7 @@
       </div>
     </div>
 
-    <!-- Skills Section with Chart -->
+    <!-- Skills Section -->
     <section id="skills">
       <div class="container">
         <h2 data-aos="fade-up">Technical Skills</h2>
@@ -2021,7 +2017,6 @@
               </div>
             </div>
     
-            <!-- Certifications (New Section at Bottom Right) -->
             <div class="skill-category">
               <h3>Certifications</h3>
               <div class="skill-list">
@@ -2209,7 +2204,7 @@
       // Typed.js Initialization
       document.addEventListener('DOMContentLoaded', function() {
         new Typed('#typing-text', {
-          strings: ['generative AI.', 'machine learning.', 'cloud computing.'],
+          strings: ['generative AI', 'machine learning', 'cloud computing', 'embedded systems'],
           typeSpeed: 50,
           backSpeed: 30,
           backDelay: 2000,
@@ -2497,8 +2492,6 @@
         document.getElementById('scrollProgress').style.width = scrollPercent + '%';
       });
       
-      // Back to Top Button - Removed since we're simplifying
-      
       // Theme Toggle
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = themeToggle.querySelector('i');
@@ -2519,10 +2512,8 @@
       
       // Theme toggle functionality
       themeToggle.addEventListener('click', () => {
-        // Toggle theme class on body
         document.body.classList.toggle('light-theme');
         
-        // Update icon
         if (document.body.classList.contains('light-theme')) {
           themeIcon.classList.remove('fa-sun');
           themeIcon.classList.add('fa-moon');
@@ -2562,23 +2553,18 @@
       
       // Contact Form
       const contactForm = document.getElementById('contactForm');
-      
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form values
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
         
-        // Simple form validation
         if (!name || !email || !message) {
           alert('Please fill in all fields');
           return;
         }
         
-        // Here you would normally send the form data to a server
-        // For demo purposes, we'll just show a success message
         alert('Thanks for your message! I\'ll get back to you soon.');
         contactForm.reset();
       });
