@@ -667,6 +667,18 @@ body.light-theme .navbar {
   color: var(--gray);
 }
 
+.project-desc a {
+  color: var(--secondary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.project-desc a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
@@ -737,8 +749,8 @@ body.light-theme .navbar {
 
 .modal-container {
   background: var(--dark-light);
-  width: 90%;
-  max-width: 800px;
+  width: 95%;
+  max-width: 900px;
   max-height: 80vh;
   border-radius: var(--radius-lg);
   overflow: hidden;

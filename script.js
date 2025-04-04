@@ -11,7 +11,7 @@ const projectData = [
         "Inertial Measurement Unit (IMU)",
         "BeagleBone Black"
       ],
-      description: "Smart gloves designed to recognize sign language gestures using machine learning and IMU sensors advised by <a href='https://www.umass.edu/engineering/about/directory/hossein-pishro-nik' target='_blank'>Professor Hossein Pishro-Nik </a>",
+      description: "Smart gloves designed to recognize sign language gestures using machine learning and IMU sensors, developed under the guidance of <a href='https://www.umass.edu/engineering/about/directory/hossein-pishro-nik' target='_blank'>Professor Hossein Pishro-Nik</a>.",
       achievements: [
         "Capture high-frequency motion data by tracking 6-axis IMU readings on each finger, enabling precise gesture recognition",
         "Process and stored sensor data as a discrete-time signal, timestamped via MCU clock, to detect sequential hand signs",
@@ -76,7 +76,6 @@ const projectData = [
     {
       id: 6,
       title: "Mixed Reality Research",
-      subtitle: "Embedded Systems Lab",
       timeline: "Sept 2023 – Dec 2023",
       technologies: [
         "C",
@@ -85,7 +84,7 @@ const projectData = [
         "HoloLens 2",
         "MRTK"
       ],
-      description: "Research project exploring collaborative interaction patterns in Mixed Reality environments using HoloLens 2.",
+      description: "Research project exploring collaborative interaction patterns in Mixed Reality environments using HoloLens 2 at the Embedded Systems Lab",
       achievements: [
         "Implemented shared object movements with multiple users using HoloLens 2 in Unity via MRTK with 7% improved accuracy",
         "Recording these movements to enable in-depth analysis to enhance understanding of user interaction patterns"
