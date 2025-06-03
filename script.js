@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Typed.js
   new Typed("#typing-text", {
-    strings: ["generative AI.  ", "machine learning.  ", "cloud computing.  "],
+    strings: ["generative AI.  ", "machine learning.  "],
     typeSpeed: 50,
     backSpeed: 30,
     backDelay: 2000,
