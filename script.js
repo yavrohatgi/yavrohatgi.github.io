@@ -14,9 +14,9 @@ const projectData = [
     description:
       "Smart gloves designed to recognize sign language gestures using machine learning and IMU sensors, developed under the guidance of <a href='https://www.umass.edu/engineering/about/directory/hossein-pishro-nik' target='_blank'>Professor Hossein Pishro-Nik</a>.",
     achievements: [
-      "Capture high-frequency motion data by tracking 6-axis IMU readings on each finger, enabling precise gesture recognition",
-      "Process and stored sensor data as a discrete-time signal, timestamped via MCU clock, to detect sequential hand signs",
-      "Train a lightweight machine learning model with TensorFlow Lite, achieving 92% accuracy in real-time gesture classification"
+      "Captured high-frequency motion data by tracking 6-axis IMU readings on each finger, enabling precise gesture recognition",
+      "Processed and stored sensor data as a discrete-time signal, timestamped via MCU clock, to detect sequential hand signs",
+      "Trained a lightweight ML model with TensorFlow Lite, achieving 92% accuracy in real-time gesture classification"
     ]
   },
   {
@@ -26,9 +26,9 @@ const projectData = [
     description:
       "Research project under <a href='https://www.umass.edu/engineering/about/directory/lixin-gao' target='_blank'>Professor Lixin Gao</a> focused on enhancing mathematical reasoning capabilities in large language models.",
     achievements: [
-      "Conduct research to improve math-solving abilities of LLMs like ChatGPT using one-shot, symbolic, and chain-of-thought reasoning",
-      "Execute training experiments on small LMs from Hugging Face, boosting BLEU score by 11.6% and enhancing mathematical reasoning",
-      "Develop an improved MATH dataset to support tutors, refining problem categorization and response accuracy"
+      "Enhanced LLM math performance using N-shot, Chain of Thought, Symbolic Reasoning, and RAG",
+      "Generated 5000+ diverse math questions from lecture notes with 90% solution accuracy and improved BLEU score by 11.6%",
+      "Outperformed baseline reasoning on MATH and GSM8K datasets along with improvements in multi-step problem solving"
     ]
   },
   {
@@ -38,8 +38,8 @@ const projectData = [
     description:
       "Efficient implementation of language prediction models using JAX for optimized computation.",
     achievements: [
-      "Designed sequence prediction models (constant, linear, MLP, double-layer networks) using JAX, improving efficiency by 30%",
-      "Fine-tuned architectures with SGD, reducing loss by 66% (from 4.27 to 1.44 in double MLP), enhancing text generation clarity"
+      "Designed sequence prediction models (constant, linear, MLP, double-layer networks) using JAX",
+      "Fine-tuned architectures with SGD, reducing loss by 66% (from 4.27 to 1.44 in double MLP), enhancing text clarity"
     ]
   },
   {
