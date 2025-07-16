@@ -14,9 +14,9 @@ const projectData = [
     description:
       "Smart gloves designed to recognize sign language gestures using machine learning and IMU sensors, developed under the guidance of <a href='https://www.umass.edu/engineering/about/directory/hossein-pishro-nik' target='_blank'>Professor Hossein Pishro-Nik</a>.",
     achievements: [
-      "Captured high-frequency motion data by tracking 6-axis IMU readings on each finger, enabling precise gesture recognition",
-      "Processed and stored sensor data as a discrete-time signal, timestamped via MCU clock, to detect sequential hand signs",
-      "Trained a lightweight ML model with TensorFlow Lite, achieving 92% accuracy in real-time gesture classification"
+      "Captured high-frequency motion signals from 6-axis IMU sensors on each finger to enable fine-grained gesture input",
+      "Processed motion data into discrete-time series timestamped via MCU clock to recognize sequential hand signs",
+      "Reached 92% real-time classification accuracy by training a lightweight model with TensorFlow Lite"
     ]
   },
   {
@@ -26,20 +26,20 @@ const projectData = [
     description:
       "Research project under <a href='https://www.umass.edu/engineering/about/directory/lixin-gao' target='_blank'>Professor Lixin Gao</a> focused on enhancing mathematical reasoning capabilities in large language models.",
     achievements: [
-      "Enhanced LLM math performance using N-shot, Chain of Thought, Symbolic Reasoning, and RAG",
-      "Generated 5000+ diverse math questions from lecture notes with 90% solution accuracy and improved BLEU score by 11.6%",
-      "Outperformed baseline reasoning on MATH and GSM8K datasets along with improvements in multi-step problem solving"
+      "Achieved 90% accuracy on 5K+ math problems by combining N-shot, Chain of Thought, Symbolic Reasoning & RAG",
+      "Boosted BLEU score by 11.6% over baseline methods on generated lecture-based math content",
+      "Improved multi-step reasoning performance on MATH and GSM8K benchmarks using structured prompts"
     ]
   },
   {
     id: 3,
-    title: "Tiny Large Language Model",
+    title: "Compact LLM Architecture",
     technologies: ["Machine Learning", "JAX"],
     description:
       "Efficient implementation of language prediction models using JAX for optimized computation.",
     achievements: [
-      "Designed sequence prediction models (constant, linear, MLP, double-layer networks) using JAX",
-      "Fine-tuned architectures with SGD, reducing loss by 66% (from 4.27 to 1.44 in double MLP), enhancing text clarity"
+      "Built sequence prediction models (constant, linear, MLP, double-layer) to evaluate accuracy and architecture tradeoffs",
+      "Reduced loss by 66% by fine-tuning double MLP networks with SGD and improved text clarity"
     ]
   },
   {
