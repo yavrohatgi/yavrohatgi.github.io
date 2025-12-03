@@ -26,9 +26,9 @@ const projectData = [
     description:
       "Research project under <a href='https://www.umass.edu/engineering/about/directory/lixin-gao' target='_blank'>Professor Lixin Gao</a> focused on enhancing mathematical reasoning capabilities in large language models.",
     achievements: [
-      "Achieved 90% accuracy on 5K+ math problems by combining N-shot, Chain of Thought, Symbolic Reasoning & RAG",
-      "Boosted BLEU score by 11.6% over baseline methods on generated lecture-based math content",
-      "Improved multi-step reasoning performance on MATH and GSM8K benchmarks using structured prompts"
+      "Achieved 90% accuracy on 5k+ math problems by integrating N-shot prompting, Chain-of-Thought reasoning, and symbolic reasoning using Wolfram Alpha to improve multi-step reasoning",
+      "Deployed a RAG system that helped improve BLEU by 11.6% for lecture-style question generation",
+      "Discovered that 18% of generated problems were unsolvable, revealing internal failures in LLM reasoning"
     ]
   },
   {
@@ -39,7 +39,8 @@ const projectData = [
       "Efficient implementation of language prediction models using JAX for optimized computation.",
     achievements: [
       "Built sequence prediction models (constant, linear, MLP, double-layer) to evaluate accuracy and architecture tradeoffs",
-      "Reduced loss by 66% by fine-tuning double MLP networks with SGD and improved text clarity"
+      "Reduced loss by 66% by fine-tuning double MLP networks with SGD and improved text clarity",
+      "Evaluated model depth, width, and learning rates to identify configurations that optimized speed and accuracy"
     ]
   },
   {
