@@ -195,20 +195,6 @@ document.addEventListener("DOMContentLoaded", function () {
     loop: true
   });
 
-  // ---------- SKILLS SECTION HOVER EFFECT ----------
-  const skillItems = document.querySelectorAll(".skill-item");
-  skillItems.forEach((item) => {
-    item.addEventListener("mouseenter", function () {
-      const randomX = Math.random() * 5 - 2.5;
-      const randomY = Math.random() * 5 - 2.5;
-      this.style.transform = `translateY(-3px) translateX(${randomX}px)`;
-    });
-
-    item.addEventListener("mouseleave", function () {
-      this.style.transform = "translateY(0) translateX(0)";
-    });
-  });
-
   // ---------- FILTER FUNCTIONALITY ----------
   const filterBtns = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
@@ -356,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeToggle = document.getElementById("themeToggle");
   const themeIcon = themeToggle.querySelector("i");
 
-  const savedTheme = localStorage.getItem("theme") || "dark";
+  const savedTheme = localStorage.getItem("theme") || "light";
   if (savedTheme === "light") {
     document.body.classList.add("light-theme");
     themeIcon.classList.remove("fa-sun");

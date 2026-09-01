@@ -31,7 +31,18 @@
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="light-theme">
+    <!-- Apply the saved theme before first paint so there's no flash of the wrong theme.
+         Light is the default; dark only applies if the visitor chose it previously. -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.remove("light-theme");
+          }
+        } catch (e) {}
+      })();
+    </script>
     <div class="loading-screen" id="loadingScreen">
       <div class="loading-content">
         <div class="loading-container">
@@ -44,10 +55,11 @@
         <div class="loading-progress">
           <div class="loading-progress-bar" id="progressBar"></div>
         </div>
-        <div class="loading-percentage" id="loadingPercentage">0%</div>
-        <div class="loading-message" id="loadingMessage">Initializing...</div>
+        <div class="loading-meta">
+          <span class="loading-message" id="loadingMessage">Initializing</span>
+          <span class="loading-percentage" id="loadingPercentage">0%</span>
+        </div>
       </div>
-    </div>
     </div>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress-container">
@@ -57,19 +69,21 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
-        <a href="#" class="logo">YR</a>
+        <a href="#" class="logo">yav rohatgi<span class="accent-dot">.</span></a>
         <div class="nav-links" id="navLinks">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+          <!-- Desktop reaches contact via the nav CTA, which is hidden on mobile -->
+          <a href="#contact" class="nav-link-contact">Contact</a>
         </div>
         <div class="nav-right">
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
             <i class="fas fa-moon"></i>
           </button>
+          <a href="#contact" class="btn btn-primary nav-cta">Contact me</a>
           <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
           </button>
@@ -80,21 +94,21 @@
     <!-- Hero Section -->
     <section class="hero" id="about">
       <div class="container hero-grid">
-        <!-- Profile Image -->
-        <div class="profile-container" data-aos="fade-right" data-aos-duration="1000">
-          <div class="profile-circle"></div>
-          <img src="photo.jpeg" alt="Yav Rohatgi" class="profile-image" />
-        </div>
-
         <!-- Hero Text -->
-        <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
-          <div class="hero-subtitle">Computer Engineer </div>
-          <h1>Yav Rohatgi</h1>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+          <div class="hero-subtitle">Computer Engineer</div>
+          <h1>
+            Yav Rohatgi
+            <span class="hero-title-sub">Software Engineer<span class="accent-dot">.</span></span>
+          </h1>
           <p class="hero-text">
-            I am a Software Engineer at Sonet.io and a recent Computer Engineering graduate from the 
-            University of Massachusetts Amherst, with a strong interest in <span id="typing-text"></span><span class="typing-cursor">|</span></p>
-          <p>I'm passionate about building innovative, scalable solutions that solve real-world problems.</p>
-          <p>Let’s connect and create something amazing together.</p>
+            Software Engineer at Sonet.io and a recent Computer Engineering graduate from
+            UMass Amherst, with a strong interest in <span id="typing-text"></span><span class="typing-cursor">|</span>
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get in touch <i class="fas fa-arrow-right"></i></a>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View resume</a>
+          </div>
           <div class="social-links">
             <a href="mailto:yavrohatgi03@gmail.com" class="social-link" aria-label="Email">
               <i class="fas fa-envelope"></i>
@@ -107,13 +121,21 @@
             </a>
           </div>
         </div>
+
+        <!-- Profile Image -->
+        <div class="profile-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+          <img src="photo.jpeg" alt="Yav Rohatgi" class="profile-image" />
+        </div>
       </div>
     </section>
 
     <!-- Experience Section with Timeline -->
     <section id="experience">
       <div class="container">
-        <h2 data-aos="fade-up">Work Experience</h2>
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Experience</span>
+          <h2>Where I've worked</h2>
+        </div>
         <div class="timeline-container">
           <!-- Timeline Item 1  -->
           <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
@@ -217,13 +239,17 @@
             </div>
           </div>  
         </div>
-      </div>  
-      
+      </div>
+    </section>
+
     <!-- Projects Section with Filtering -->
     <section id="projects">
       <div class="container">
-        <h2 data-aos="fade-up">Featured Projects</h2>
-        
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Projects</span>
+          <h2>Things I've built</h2>
+        </div>
+
         <div class="project-filters" data-aos="fade-up">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="aiml">AI/ML</button>
@@ -247,7 +273,7 @@
                 <div class="tag">C++</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -265,7 +291,7 @@
                 <div class="tag">Hugging Face</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -280,7 +306,7 @@
                 <div class="tag">JAX</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -296,7 +322,7 @@
                 <div class="tag">Multi-Threading</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -311,7 +337,7 @@
                 <div class="tag">Ethereum Smart Contracts</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -328,7 +354,7 @@
                 <div class="tag">HoloLens 2</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -344,7 +370,7 @@
                 <div class="tag">Quartus Prime</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -359,7 +385,7 @@
                 <div class="tag">Ripes</div>
               </div>
               <div class="project-details-btn">
-                <i class="fas fa-plus-circle"></i> View Details
+                View details <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -387,7 +413,10 @@
     <!-- Skills Section -->
     <section id="skills">
       <div class="container">
-        <h2 data-aos="fade-up">Technical Skills</h2>
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Skills</span>
+          <h2>What I work with</h2>
+        </div>
         <div class="skills-container" data-aos="fade-up" data-aos-delay="100">
           <div class="skills-grid">
             <div class="skill-category">
@@ -462,9 +491,12 @@
       <div class="container">
         <div class="contact-container">
           <div class="contact-info">
-            <h2 data-aos="fade-up">Get In Touch</h2>
+            <div class="section-head" data-aos="fade-up">
+              <span class="eyebrow">Contact</span>
+              <h2>Let's build something<span class="accent-dot">.</span></h2>
+            </div>
             <p data-aos="fade-up" data-aos-delay="100">
-              Feel free to reach out if you'd like to discuss potential collaborations or just want to connect!
+              Feel free to reach out if you'd like to discuss potential collaborations or just want to connect.
             </p>
             <div class="social-links" data-aos="fade-up" data-aos-delay="200">
               <a href="mailto:yavrohatgi03@gmail.com" class="social-link" aria-label="Email">
@@ -494,7 +526,7 @@
                 <textarea id="message" name="message" class="form-textarea" required></textarea>
               </div>
               <input type="text" name="_gotcha" style="display:none">
-              <button type="submit" class="submit-btn">Send Message</button>
+              <button type="submit" class="btn btn-primary submit-btn">Send message <i class="fas fa-arrow-right"></i></button>
             </form>
           </div>
         </div>
