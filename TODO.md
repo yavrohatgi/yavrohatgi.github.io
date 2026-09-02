@@ -77,9 +77,11 @@ add it as a new unchecked line directly beneath it.
   handlers and `tabIndex -1`, so the eight project modals cannot be opened by keyboard at all);
   give the project modal `role="dialog"`, `aria-modal` and a focus trap; set the initial
   `aria-pressed` on the filter buttons (AUDIT problems 13, 14, 17, 18)
-- [ ] Full keyboard pass: everything reachable, visible focus styles, a "skip to content" link,
+- [x] Full keyboard pass: everything reachable, visible focus styles, a "skip to content" link,
   correct landmark elements (`header`, `nav`, `main`, `footer`)
-  — measured landmark counts today: header 0, nav 1, main 0, footer 1; no skip link (AUDIT problem 16)
+  — skip link added (verified as the first tab stop) and `<main>` wraps the content sections.
+  `<nav>` and `<footer>` were already present; no separate `<header>` since the nav bar is the
+  only masthead. Verified: focus trap holds, Escape restores focus to the opening card
 - [x] WCAG AA contrast on all text and interactive elements against the green/white palette;
   adjust shades if needed while keeping the theme recognizable
   — light-theme `--primary` `#008d63` measures 4.03:1 on the page ground, 3.80:1 on cards and
