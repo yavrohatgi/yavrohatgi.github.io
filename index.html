@@ -47,9 +47,9 @@
     <!-- ?v= is a cache buster. Bump it whenever styles.css or script.js changes:
          without it a returning visitor can pair new HTML with a stale cached
          script, and a single ReferenceError takes down every handler on the page. -->
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" defer></script>
-    <script src="script.js?v=2" defer></script>
+    <script src="script.js?v=3" defer></script>
   </head>
   <body class="light-theme">
     <!-- Apply the saved theme before first paint so there's no flash of the wrong theme.
@@ -112,6 +112,8 @@
         </div>
       </div>
     </div>
+    <a class="skip-link" href="#about">Skip to content</a>
+
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress-container">
       <div class="scroll-progress-bar" id="scrollProgress"></div>
@@ -147,6 +149,7 @@
       </div>
     </nav>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero" id="about">
       <div class="container hero-grid">
@@ -159,7 +162,7 @@
           </h1>
           <p class="hero-text">
             Software Engineer at Sonet.io and a recent Computer Engineering graduate from
-            UMass Amherst, with a strong interest in <span id="typing-text"></span><span class="typing-cursor">|</span>
+            UMass Amherst, with a strong interest in <span id="typing-text">generative AI.</span><span class="typing-cursor">|</span>
           </p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Get in touch <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
@@ -169,10 +172,10 @@
             <a href="mailto:yavrohatgi03@gmail.com" class="social-link" aria-label="Email">
               <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
             </a>
-            <a href="https://github.com/yavrohatgi" target="_blank" class="social-link" aria-label="GitHub">
+            <a href="https://github.com/yavrohatgi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
               <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
             </a>
-            <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" class="social-link" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
               <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
             </a>
           </div>
@@ -180,7 +183,8 @@
 
         <!-- Profile Image -->
         <div class="profile-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
-          <img src="photo.jpeg" alt="Yav Rohatgi" class="profile-image" />
+          <img src="photo.jpeg" alt="Portrait of Yav Rohatgi" class="profile-image"
+               width="800" height="800" decoding="async" fetchpriority="high" />
         </div>
       </div>
     </section>
@@ -201,10 +205,10 @@
                 <div class="card-title-container">
                   <h3 class="card-title">Software Engineer</h3>
                   <div class="card-subtitle">
-                    <a href="https://www.sonet.io" target="_blank">Sonet.io</a>
+                    <a href="https://www.sonet.io" target="_blank" rel="noopener noreferrer">Sonet.io</a>
                   </div>
                 </div>
-                <div class="card-date">June 2025 – Current </div>
+                <div class="card-date">June 2025 – Present</div>
               </div>
               <div class="tech-tags">
                 <div class="tag">Python</div>
@@ -212,9 +216,9 @@
                 <div class="tag">Cloud Infrastructure</div>
               </div>
               <ul class="card-list">
-                <li>Developed an agentic AI solution using browser automation to read and drive web based application screens, handling logins, data entry, and workflow execution, achieving 80% accuracy on PMS workflows </li>
-                <li> Automated VM image preparation using CI/CD pipelines, including WinRM validation, sysprep, VM generalization, and Shared Image Gallery (SIG) publishing, streamlining and speeding up image release cycles </li>
-                <li> Built custom browser automation actions using Chrome DevTools Protocol for precise coordinate based clicking and typing on canvas based UIs, enabling reliable automation on web applications, where DOMs fail</li>
+                <li>Developed an agentic AI solution using browser automation to read and drive web based application screens, handling logins, data entry, and workflow execution, achieving 80% accuracy on PMS workflows</li>
+                <li>Automated VM image preparation using CI/CD pipelines, including WinRM validation, sysprep, VM generalization, and Shared Image Gallery (SIG) publishing, streamlining and speeding up image release cycles</li>
+                <li>Built custom browser automation actions using Chrome DevTools Protocol for precise coordinate based clicking and typing on canvas based UIs, enabling reliable automation on web applications, where DOMs fail</li>
               </ul>
             </div>
           </div>
@@ -226,7 +230,7 @@
                 <div class="card-title-container">
                   <h3 class="card-title">Undergraduate Teaching Assistant</h3>
                   <div class="card-subtitle">
-                    <a href="https://www.umass.edu/engineering/" target="_blank">College of Engineering at UMass Amherst</a>
+                    <a href="https://www.umass.edu/engineering/" target="_blank" rel="noopener noreferrer">College of Engineering at UMass Amherst</a>
                   </div>
                 </div>
                 <div class="card-date">Sept 2023 – Dec 2024</div>
@@ -252,7 +256,7 @@
                 <div class="card-title-container">
                   <h3 class="card-title">Software Engineer Intern</h3>
                   <div class="card-subtitle">
-                    <a href="https://www.sonet.io" target="_blank">Sonet.io</a>
+                    <a href="https://www.sonet.io" target="_blank" rel="noopener noreferrer">Sonet.io</a>
                   </div>
                 </div>
                 <div class="card-date">May 2024 – Aug 2024</div>
@@ -263,9 +267,9 @@
                 <div class="tag">Kubernetes</div>
               </div>
               <ul class="card-list">
-                <li> Cut manual setup time by 7% by engineering PowerShell scripts to automate installs on 50+ remote machines </li>
-                <li> Increased log access speed by 8% by building Kubernetes monitoring scripts for 10+ applications across 3+ clusters </li>
-                <li> Improved system and storage efficiency by 5% through logout scripts that deleted guest-created data</li>
+                <li>Cut manual setup time by 7% by engineering PowerShell scripts to automate installs on 50+ remote machines</li>
+                <li>Increased log access speed by 8% by building Kubernetes monitoring scripts for 10+ applications across 3+ clusters</li>
+                <li>Improved system and storage efficiency by 5% through logout scripts that deleted guest-created data</li>
               </ul>
             </div>
           </div>
@@ -277,7 +281,7 @@
                 <div class="card-title-container">
                   <h3 class="card-title">Software Engineering Intern</h3>
                   <div class="card-subtitle">
-                    <a href="https://www.samsungsds.com/in/index.html" target="_blank">Samsung Data Systems</a>
+                    <a href="https://www.samsungsds.com/in/index.html" target="_blank" rel="noopener noreferrer">Samsung SDS</a>
                   </div>
                 </div>
                 <div class="card-date">May 2023 – Aug 2023</div>
@@ -307,21 +311,21 @@
         </div>
 
         <div class="project-filters" data-aos="fade-up">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="aiml">AI/ML</button>
-          <button class="filter-btn" data-filter="systems">System Design</button>
-          <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
-          <button class="filter-btn" data-filter="blockchain">Blockchain</button>
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="aiml" aria-pressed="false">AI/ML</button>
+          <button class="filter-btn" data-filter="systems" aria-pressed="false">System Design</button>
+          <button class="filter-btn" data-filter="embedded" aria-pressed="false">Embedded Systems</button>
+          <button class="filter-btn" data-filter="blockchain" aria-pressed="false">Blockchain</button>
         </div>
         
         <div class="projects-grid">
           <!-- Project Card 1: Sign Detection Gloves (AI/ML and Embedded) -->
-          <div class="project-card" data-category="aiml embedded" data-aos="fade-up" data-aos-delay="100" data-project-id="1">
+          <div class="project-card" role="button" tabindex="0" data-category="aiml embedded" data-aos="fade-up" data-aos-delay="100" data-project-id="1">
             <div class="project-content">
               <h3 class="project-title">Sign Language Detection Gloves</h3>
               <p class="project-desc">
                 Smart gloves built to recognize sign language gestures using machine learning and IMU sensors, developed under the guidance of 
-                <a href="https://www.umass.edu/engineering/about/directory/hossein-pishro-nik" target="_blank">Professor Hossein Pishro-Nik</a>.
+                <a href="https://www.umass.edu/engineering/about/directory/hossein-pishro-nik" target="_blank" rel="noopener noreferrer">Professor Hossein Pishro-Nik</a>.
               </p>              
               <div class="tech-tags">
                 <div class="tag">Machine Learning</div>
@@ -341,11 +345,11 @@
           </div>
           
           <!-- Project Card 2: AI Assisted Math Tutoring (AI/ML) -->
-          <div class="project-card" data-category="aiml" data-aos="fade-up" data-aos-delay="200" data-project-id="2">
+          <div class="project-card" role="button" tabindex="0" data-category="aiml" data-aos="fade-up" data-aos-delay="200" data-project-id="2">
             <div class="project-content">
-              <h3 class="project-title">LLM-Based Math Tutoring System</h3>
+              <h3 class="project-title">AI Assisted Approach to Math Tutoring</h3>
               <p class="project-desc">
-                Research project under <a href="https://www.umass.edu/engineering/about/directory/lixin-gao" target="_blank">Professor Lixin Gao</a>, focused on enhancing mathematical reasoning capabilities in large language models.
+                Research project under <a href="https://www.umass.edu/engineering/about/directory/lixin-gao" target="_blank" rel="noopener noreferrer">Professor Lixin Gao</a>, focused on enhancing mathematical reasoning capabilities in large language models.
               </p>                          
               <div class="tech-tags">
                 <div class="tag">LangChain</div>
@@ -361,7 +365,7 @@
           </div>
           
           <!-- Project Card 3: Tiny Large Language Model (AI/ML) -->
-          <div class="project-card" data-category="aiml" data-aos="fade-up" data-aos-delay="300" data-project-id="3">
+          <div class="project-card" role="button" tabindex="0" data-category="aiml" data-aos="fade-up" data-aos-delay="300" data-project-id="3">
             <div class="project-content">
               <h3 class="project-title">Compact LLM Architecture</h3>
               <p class="project-desc">Efficient implementation of language prediction models using JAX for optimized computation.</p>
@@ -378,7 +382,7 @@
           </div>
 
           <!-- Project Card 4: Thread Library & Disk Scheduler (Systems) -->
-          <div class="project-card" data-category="systems" data-aos="fade-up" data-aos-delay="300" data-project-id="4">
+          <div class="project-card" role="button" tabindex="0" data-category="systems" data-aos="fade-up" data-aos-delay="300" data-project-id="4">
             <div class="project-content">
               <h3 class="project-title">Thread Library & Disk Scheduler</h3>
               <p class="project-desc">Low-level implementation of threading and disk scheduling systems in C++.</p>
@@ -396,7 +400,7 @@
           </div>
           
           <!-- Project Card 5: Token Manager and Holder Contracts (Blockchain) -->
-          <div class="project-card" data-category="blockchain" data-aos="fade-up" data-aos-delay="400" data-project-id="5">
+          <div class="project-card" role="button" tabindex="0" data-category="blockchain" data-aos="fade-up" data-aos-delay="400" data-project-id="5">
             <div class="project-content">
               <h3 class="project-title">Token Manager and Holder Contracts</h3>
               <p class="project-desc">Ethereum smart contracts for secure token management with ERC223 compliance.</p>
@@ -413,7 +417,7 @@
           </div>
           
           <!-- Project Card 6: Mixed Reality Research (Embedded Systems) -->
-          <div class="project-card" data-category="embedded" data-aos="fade-up" data-aos-delay="100" data-project-id="6">
+          <div class="project-card" role="button" tabindex="0" data-category="embedded" data-aos="fade-up" data-aos-delay="100" data-project-id="6">
             <div class="project-content">
               <h3 class="project-title">Mixed Reality Research</h3>
               <p class="project-desc">Implemented shared object interaction in mixed reality environments using HoloLens 2.</p>
@@ -432,7 +436,7 @@
           </div>
           
           <!-- Project Card 7: Secure Communication System (Systems) -->
-          <div class="project-card" data-category="systems" data-aos="fade-up" data-aos-delay="200" data-project-id="7">
+          <div class="project-card" role="button" tabindex="0" data-category="systems" data-aos="fade-up" data-aos-delay="200" data-project-id="7">
             <div class="project-content">
               <h3 class="project-title">Secure Communication System</h3>
               <p class="project-desc">FPGA-based secure communication implementation with cryptographic primitives and hardware random number generation.</p>
@@ -450,7 +454,7 @@
           </div>
           
           <!-- Project Card 8: CPU Simulation and Cache Optimization (Systems) -->
-          <div class="project-card" data-category="systems" data-aos="fade-up" data-aos-delay="300" data-project-id="8">
+          <div class="project-card" role="button" tabindex="0" data-category="systems" data-aos="fade-up" data-aos-delay="300" data-project-id="8">
             <div class="project-content">
               <h3 class="project-title">CPU Simulation and Cache Optimization</h3>
               <p class="project-desc">Architecture simulation with cache optimization for RISC-V processors to improve performance metrics.</p>
@@ -470,11 +474,11 @@
     </section>
     
     <!-- Project Details Modal -->
-    <div class="modal-overlay" id="projectModal">
+    <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
       <div class="modal-container">
         <div class="modal-header">
           <h3 id="modalTitle">Project Title</h3>
-          <button class="modal-close" id="modalClose">
+          <button class="modal-close" id="modalClose" aria-label="Close project details">
             <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
           </button>
         </div>
@@ -513,7 +517,7 @@
                 <div class="skill-item">PyTorch</div>
                 <div class="skill-item">JAX</div>
                 <div class="skill-item">Scikit-Learn</div>
-                <div class="skill-item">Hugging Face Transformer</div>
+                <div class="skill-item">Hugging Face Transformers</div>
                 <div class="skill-item">LangChain</div>
               </div>
             </div>
@@ -529,7 +533,7 @@
             </div>
     
             <div class="skill-category">
-              <h3>Cloud development</h3>
+              <h3>Cloud Development</h3>
               <div class="skill-list">
                 <div class="skill-item">Azure</div>
                 <div class="skill-item">AWS</div>
@@ -578,10 +582,10 @@
               <a href="mailto:yavrohatgi03@gmail.com" class="social-link" aria-label="Email">
                 <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
               </a>
-              <a href="https://github.com/yavrohatgi" target="_blank" class="social-link" aria-label="GitHub">
+              <a href="https://github.com/yavrohatgi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
                 <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
               </a>
-              <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" class="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                 <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
               </a>
             </div>
@@ -612,6 +616,8 @@
       </div>
     </section>
 
+    </main>
+
     <!-- Footer Section -->
     <footer>
       <div class="container">
@@ -622,9 +628,9 @@
     </footer>
 
     <!-- Back to top button -->
-    <div class="floating-action-btn" id="backToTop">
+    <button type="button" class="floating-action-btn" id="backToTop" aria-label="Back to top">
       <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
-    </div>
+    </button>
 
     <!-- Command palette (⌘K) -->
     <div class="palette-overlay" id="palette" hidden>

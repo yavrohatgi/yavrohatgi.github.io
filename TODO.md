@@ -29,19 +29,21 @@ add it as a new unchecked line directly beneath it.
 
 ## Phase 1: Fix what is broken
 
-- [ ] Give `#typing-text` a static fallback so the hero sentence is complete before (and without)
+- [x] Give `#typing-text` a static fallback so the hero sentence is complete before (and without)
   typed.js. Today it reads "…with a strong interest in |" whenever cdnjs is blocked or slow
   (AUDIT problem 1)
-- [ ] Add `rel="noopener noreferrer"` to the 8 `target="_blank"` links that lack it — both social
+- [x] Add `rel="noopener noreferrer"` to the 8 `target="_blank"` links that lack it — both social
   groups, both Sonet.io links, both UMass directory links, UMass Engineering, Samsung
   (AUDIT problem 4)
-- [ ] Put the experience timeline back in reverse-chronological order; the UTA card currently sits
-  above an internship that started eight months later (AUDIT problem 2)
-- [ ] Make each project card's title match its modal title — cards 1 and 2 disagree with
+- [x] ~~Put the experience timeline back in reverse-chronological order~~ — **withdrawn.**
+  The audit was wrong: end dates run Current > Dec 2024 > Aug 2024 > Aug 2023, so the timeline is
+  already sorted by end date, a normal convention for overlapping roles. Only the stale HTML
+  comments ("Item 1 / Item 3 / Item 2") are out of order. No change made
+- [x] Make each project card's title match its modal title — cards 1 and 2 disagree with
   `projectData`, so the heading changes when the card is opened (AUDIT problem 3)
-- [ ] Every `<img>` has meaningful `alt`, explicit `width` and `height`, and `loading="lazy"` if below the fold
+- [x] Every `<img>` has meaningful `alt`, explicit `width` and `height`, and `loading="lazy"` if below the fold
   (AUDIT problems 21, 24)
-- [ ] Fix all typos, grammar slips, and inconsistent capitalization in visible text
+- [x] Fix all typos, grammar slips, and inconsistent capitalization in visible text
   (AUDIT problems 5–10: "Samsung Data Systems" vs the résumé's "Samsung SDS"; "June 2025 – Current"
   vs the "Sept 2023 – Dec 2024" format used elsewhere; "Cloud development"; "Hugging Face Transformer";
   stray whitespace in list items; the undefined "PMS" acronym)
@@ -68,17 +70,17 @@ add it as a new unchecked line directly beneath it.
 
 ## Phase 2: Performance, accessibility, SEO
 
-- [ ] Add visible `:focus-visible` styles across the site. Right now the only `:focus` rule in
+- [x] Add visible `:focus-visible` styles across the site. Right now the only `:focus` rule in
   `styles.css` is an `outline: none` on the form inputs and palette input, with no replacement —
   a WCAG 2.4.7 failure (AUDIT problem 12)
-- [ ] Make project cards and the back-to-top control keyboard-operable (they are `div`s with click
+- [x] Make project cards and the back-to-top control keyboard-operable (they are `div`s with click
   handlers and `tabIndex -1`, so the eight project modals cannot be opened by keyboard at all);
   give the project modal `role="dialog"`, `aria-modal` and a focus trap; set the initial
   `aria-pressed` on the filter buttons (AUDIT problems 13, 14, 17, 18)
 - [ ] Full keyboard pass: everything reachable, visible focus styles, a "skip to content" link,
   correct landmark elements (`header`, `nav`, `main`, `footer`)
   — measured landmark counts today: header 0, nav 1, main 0, footer 1; no skip link (AUDIT problem 16)
-- [ ] WCAG AA contrast on all text and interactive elements against the green/white palette;
+- [x] WCAG AA contrast on all text and interactive elements against the green/white palette;
   adjust shades if needed while keeping the theme recognizable
   — light-theme `--primary` `#008d63` measures 4.03:1 on the page ground, 3.80:1 on cards and
   3.38:1 for `.tag`; all fail. About `#006e4c` passes everywhere at 6.03 / 5.69 / 4.94.

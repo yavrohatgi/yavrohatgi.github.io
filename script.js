@@ -2,7 +2,7 @@
 const projectData = [
   {
     id: 1,
-    title: "Sign Detection Gloves",
+    title: "Sign Language Detection Gloves",
     repo: "https://github.com/yavrohatgi/SignSpeak",
     technologies: [
       "Machine Learning",
@@ -181,7 +181,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ---------- TYPED HEADLINE ----------
+  // #typing-text ships with a static first phrase so the hero sentence is complete
+  // even when the typed.js CDN is blocked or slow. Clear it only once typed.js has
+  // actually arrived and is about to take over.
   if (window.Typed) {
+    const typingEl = document.getElementById("typing-text");
+    if (typingEl) typingEl.textContent = "";
     new Typed("#typing-text", {
       strings: ["generative AI.  ", "machine learning.  "],
       typeSpeed: 50,
@@ -271,20 +276,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
     modalContent.innerHTML = content;
     projectModal.classList.add("active");
+    projectModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    modalClose.focus();
+    focusWhenVisible(modalClose);
+  }
+
+  // The overlay transitions `visibility`, so it stays hidden for the whole 0.25s
+  // and focus() is a no-op until that finishes — a frame is far too early. Wait for
+  // transitionend, with a timer in case the event never lands.
+  function focusWhenVisible(el) {
+    if (getComputedStyle(projectModal).visibility === "visible") {
+      el.focus();
+      return;
+    }
+    let timer;
+    const done = function () {
+      projectModal.removeEventListener("transitionend", done);
+      clearTimeout(timer);
+      el.focus();
+    };
+    projectModal.addEventListener("transitionend", done);
+    timer = setTimeout(done, 400);
   }
 
   function closeModal() {
     projectModal.classList.remove("active");
+    projectModal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     if (lastFocused) lastFocused.focus();
   }
+
+  // Keep Tab inside the dialog while it's open; without this the focus ring
+  // walks off into the page behind the overlay.
+  projectModal.addEventListener("keydown", function (e) {
+    if (e.key !== "Tab" || !projectModal.classList.contains("active")) return;
+    const focusable = projectModal.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
 
   projectCards.forEach(function (card) {
     card.addEventListener("click", function (e) {
       // let the "Code" link do its own thing instead of opening the modal
       if (e.target.closest("a")) return;
+      openProject(parseInt(card.dataset.projectId, 10));
+    });
+
+    // The card is a role="button", so it has to answer Enter and Space too
+    card.addEventListener("keydown", function (e) {
+      if (e.target.closest("a")) return;
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
       openProject(parseInt(card.dataset.projectId, 10));
     });
   });

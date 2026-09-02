@@ -66,8 +66,10 @@ body.light-theme {
   --text: #003434;
   --muted: #4b4949;
 
-  --primary: #008d63;
-  --primary-soft: rgba(0, 141, 99, 0.1);
+  /* Darkened from #008d63, which measured 4.03:1 on the page ground and 3.80:1 on
+     cards — both below the 4.5:1 AA needs. This passes at 6.03 / 5.69 / 4.94. */
+  --primary: #006e4c;
+  --primary-soft: rgba(0, 110, 76, 0.1);
   --accent: #c6f224;
   --accent-hover: #b4dc21;
   --hairline-accent: var(--primary);
@@ -791,6 +793,10 @@ a:hover {
 .profile-image {
   position: relative;
   width: 100%;
+  /* The width/height attributes on the <img> (there to reserve space and stop layout
+     shift) map to presentational hints. Without this, height:800px wins over
+     aspect-ratio and the portrait renders as a tall column. */
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: 50% 22%;
@@ -1273,6 +1279,14 @@ a:hover {
   outline: none;
 }
 
+/* The rule above kills the UA outline, so keyboard focus has to be drawn back
+   explicitly — otherwise there is no focus indicator on these fields at all. */
+.form-input:focus-visible,
+.form-textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 .form-textarea {
   min-height: 140px;
   resize: vertical;
@@ -1518,6 +1532,53 @@ footer {
   }
 }
 
+
+/* =====================
+   Focus
+===================== */
+/* One visible indicator for every keyboard-reachable control. :focus-visible so
+   it appears for keyboard users without ringing every mouse click. */
+a:focus-visible,
+button:focus-visible,
+.project-card:focus-visible,
+.palette-item:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* Lime on the accent-filled buttons: the emerald outline disappears against them */
+.btn-primary:focus-visible,
+.filter-btn.active:focus-visible,
+.floating-action-btn:focus-visible {
+  outline-color: var(--on-accent);
+  outline-offset: 2px;
+}
+
+.palette-field input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Skip link: off-screen until focused, then pinned top-left */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 4000;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  border-radius: 0 0 var(--r-sm) 0;
+}
+
+.skip-link:focus {
+  left: 0;
+  color: var(--on-accent);
+}
 
 /* =====================
    Icons
