@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ---------- TYPED HEADLINE ----------
   if (window.Typed) {
     new Typed("#typing-text", {
-      strings: ["generative AI.  ", "machine learning.  "],
+      strings: ["agentic AI.  ", "browser automation.  ", "machine learning.  "],
       typeSpeed: 50,
       backSpeed: 30,
       backDelay: 2000,
@@ -474,6 +474,35 @@ document.addEventListener("DOMContentLoaded", function () {
   backToTopBtn.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // ---------- ACTIVE NAV PILL ----------
+  // Highlights the nav link for whichever section currently owns the viewport.
+  const navAnchors = document.querySelectorAll(".nav-links a[data-nav]");
+  if (navAnchors.length && "IntersectionObserver" in window) {
+    const sectionById = {};
+    navAnchors.forEach(function (a) {
+      const el = document.getElementById(a.dataset.nav);
+      if (el) sectionById[a.dataset.nav] = el;
+    });
+
+    function setCurrent(id) {
+      navAnchors.forEach(function (a) {
+        a.classList.toggle("is-current", a.dataset.nav === id);
+      });
+    }
+
+    const sectionObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setCurrent(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    Object.keys(sectionById).forEach(function (id) {
+      sectionObserver.observe(sectionById[id]);
+    });
+  }
 
   // ---------- MOBILE NAV ----------
   const navToggle = document.getElementById("navToggle");

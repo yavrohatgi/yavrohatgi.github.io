@@ -3,7 +3,7 @@
   <head>   
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yav Rohatgi — Software Engineer</title>
+    <title>Yav Rohatgi — Personal Website</title>
     <meta
       name="description"
       content="Software Engineer at Sonet.io building agentic AI and browser automation. Computer Engineering graduate from UMass Amherst."
@@ -13,7 +13,7 @@
     <!-- Social preview -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yavrohatgi.me/" />
-    <meta property="og:title" content="Yav Rohatgi — Software Engineer" />
+    <meta property="og:title" content="Yav Rohatgi — Personal Website" />
     <meta
       property="og:description"
       content="Building agentic AI and browser automation at Sonet.io. Computer Engineering, UMass Amherst."
@@ -21,9 +21,9 @@
     <meta property="og:image" content="https://yavrohatgi.me/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Yav Rohatgi — Software Engineer" />
+    <meta property="og:image:alt" content="Yav Rohatgi — Personal Website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Yav Rohatgi — Software Engineer" />
+    <meta name="twitter:title" content="Yav Rohatgi — Personal Website" />
     <meta
       name="twitter:description"
       content="Building agentic AI and browser automation at Sonet.io. Computer Engineering, UMass Amherst."
@@ -31,8 +31,8 @@
     <meta name="twitter:image" content="https://yavrohatgi.me/og-image.png" />
 
     <!-- Tints the browser chrome on mobile to match whichever theme is showing -->
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#001b1f" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5faf3" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#06211f" />
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -40,16 +40,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
 
     <!-- ?v= is a cache buster. Bump it whenever styles.css or script.js changes:
          without it a returning visitor can pair new HTML with a stale cached
          script, and a single ReferenceError takes down every handler on the page. -->
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" defer></script>
-    <script src="script.js?v=2" defer></script>
+    <script src="script.js?v=3" defer></script>
   </head>
   <body class="light-theme">
     <!-- Apply the saved theme before first paint so there's no flash of the wrong theme.
@@ -122,13 +122,13 @@
       <div class="nav-container">
         <a href="#" class="logo">yav rohatgi<span class="accent-dot">.</span></a>
         <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="#about" data-nav="about">About</a>
+          <a href="#experience" data-nav="experience">Experience</a>
+          <a href="#projects" data-nav="projects">Projects</a>
+          <a href="#skills" data-nav="skills">Skills</a>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
           <!-- Desktop reaches contact via the nav CTA, which is hidden on mobile -->
-          <a href="#contact" class="nav-link-contact">Contact</a>
+          <a href="#contact" class="nav-link-contact" data-nav="contact">Contact</a>
         </div>
         <div class="nav-right">
           <button class="palette-trigger" id="paletteTrigger" aria-label="Open command palette">
@@ -139,7 +139,7 @@
             <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
             <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
           </button>
-          <a href="#contact" class="btn btn-primary nav-cta">Contact me</a>
+          <a href="#contact" class="btn btn-dark nav-cta">Say hi</a>
           <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
           </button>
@@ -152,138 +152,170 @@
       <div class="container hero-grid">
         <!-- Hero Text -->
         <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-          <div class="hero-subtitle">Computer Engineer</div>
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            Yav Rohatgi · Software Engineer · Sonet.io
+          </div>
           <h1>
-            Yav Rohatgi
-            <span class="hero-title-sub">Software Engineer<span class="accent-dot">.</span></span>
+            <span class="hero-line-1">Yav Rohatgi<span class="accent-dot">.</span></span>
+            <span class="hero-line-2">Builds things.</span>
           </h1>
           <p class="hero-text">
-            Software Engineer at Sonet.io and a recent Computer Engineering graduate from
-            UMass Amherst, with a strong interest in <span id="typing-text"></span><span class="typing-cursor">|</span>
+            Software Engineer at Sonet.io and a Computer Engineering graduate from
+            UMass Amherst. I spend most of my time on <span id="typing-text"></span><span class="typing-cursor">|</span>
           </p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Get in touch <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View resume</a>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="link-underline">View resume</a>
           </div>
           <div class="social-links">
             <a href="mailto:yavrohatgi03@gmail.com" class="social-link" aria-label="Email">
               <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
             </a>
-            <a href="https://github.com/yavrohatgi" target="_blank" class="social-link" aria-label="GitHub">
+            <a href="https://github.com/yavrohatgi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
               <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
             </a>
-            <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" class="social-link" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
               <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
             </a>
           </div>
         </div>
 
-        <!-- Profile Image -->
-        <div class="profile-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
-          <img src="photo.jpeg" alt="Yav Rohatgi" class="profile-image" />
+        <!-- Stacked cards -->
+        <div class="card-stack" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+          <div class="stack-card stack-card-back" aria-hidden="true"></div>
+          <div class="stack-card stack-card-mid" aria-hidden="true">
+            <span class="stack-card-label">Agentic AI · Browser automation · Cloud infra</span>
+          </div>
+          <div class="stack-card stack-card-front">
+            <div class="stack-card-head">
+              <span class="stack-eyebrow"><span class="hide-sm">Computer Engineering · UMass Amherst</span><span class="show-sm">CompE · UMass Amherst</span></span>
+            </div>
+            <img src="photo.jpeg" alt="Yav Rohatgi" class="profile-image" width="480" height="480" />
+            <div class="stack-card-foot">
+              <span class="stack-meta">Based in the US · Open to coffee chats</span>
+            </div>
+            <span class="sticker">Now at Sonet.io</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience Section with Timeline -->
+    <!-- Marquee band -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Agentic AI</span><i></i>
+        <span>Browser automation</span><i></i>
+        <span>Kubernetes</span><i></i>
+        <span>Large language models</span><i></i>
+        <span>Embedded systems</span><i></i>
+        <span>Azure &amp; AWS</span><i></i>
+        <span>Python</span><i></i>
+        <span>C / C++</span><i></i>
+        <span>Agentic AI</span><i></i>
+        <span>Browser automation</span><i></i>
+        <span>Kubernetes</span><i></i>
+        <span>Large language models</span><i></i>
+        <span>Embedded systems</span><i></i>
+        <span>Azure &amp; AWS</span><i></i>
+        <span>Python</span><i></i>
+        <span>C / C++</span><i></i>
+      </div>
+    </div>
+
+    <!-- Experience Section -->
     <section id="experience">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
           <span class="eyebrow">Experience</span>
-          <h2>Where I've worked</h2>
+          <h2>Where I've worked<span class="accent-dot">.</span> <em class="serif">So far.</em></h2>
         </div>
-        <div class="timeline-container">
-          <!-- Timeline Item 1  -->
-          <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="card">
-              <div class="card-header">
-                
-                <div class="card-title-container">
-                  <h3 class="card-title">Software Engineer</h3>
-                  <div class="card-subtitle">
-                    <a href="https://www.sonet.io" target="_blank">Sonet.io</a>
-                  </div>
-                </div>
-                <div class="card-date">June 2025 – Current </div>
-              </div>
+        <div class="ticket-grid">
+          <!-- Ticket 1 -->
+          <article class="ticket" data-aos="fade-up" data-aos-delay="100">
+            <div class="ticket-stub">
+              <span class="stub-top">Jun</span>
+              <span class="stub-big">2025</span>
+              <span class="stub-bottom">Now</span>
+            </div>
+            <div class="ticket-body">
+              <span class="ticket-label">Full-time</span>
+              <h3 class="card-title">Software Engineer</h3>
+              <p class="card-subtitle"><a href="https://www.sonet.io" target="_blank" rel="noopener noreferrer">Sonet.io</a> · June 2025 – present</p>
               <div class="tech-tags">
                 <div class="tag">Python</div>
                 <div class="tag">PowerShell</div>
                 <div class="tag">Cloud Infrastructure</div>
               </div>
               <ul class="card-list">
-                <li>Developed an agentic AI solution using browser automation to read and drive web based application screens, handling logins, data entry, and workflow execution, achieving 80% accuracy on PMS workflows </li>
-                <li> Automated VM image preparation using CI/CD pipelines, including WinRM validation, sysprep, VM generalization, and Shared Image Gallery (SIG) publishing, streamlining and speeding up image release cycles </li>
-                <li> Built custom browser automation actions using Chrome DevTools Protocol for precise coordinate based clicking and typing on canvas based UIs, enabling reliable automation on web applications, where DOMs fail</li>
+                <li>Developed an agentic AI solution using browser automation to read and drive web based application screens, handling logins, data entry, and workflow execution, achieving 80% accuracy on PMS workflows</li>
+                <li>Automated VM image preparation using CI/CD pipelines, including WinRM validation, sysprep, VM generalization, and Shared Image Gallery (SIG) publishing, streamlining and speeding up image release cycles</li>
+                <li>Built custom browser automation actions using Chrome DevTools Protocol for precise coordinate based clicking and typing on canvas based UIs, enabling reliable automation on web applications, where DOMs fail</li>
               </ul>
             </div>
-          </div>
+          </article>
 
-          <!-- Timeline Item 3 -->
-          <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title-container">
-                  <h3 class="card-title">Undergraduate Teaching Assistant</h3>
-                  <div class="card-subtitle">
-                    <a href="https://www.umass.edu/engineering/" target="_blank">College of Engineering at UMass Amherst</a>
-                  </div>
-                </div>
-                <div class="card-date">Sept 2023 – Dec 2024</div>
-              </div>
+          <!-- Ticket 2 -->
+          <article class="ticket ticket-alt" data-aos="fade-up" data-aos-delay="200">
+            <div class="ticket-stub">
+              <span class="stub-top">Sep</span>
+              <span class="stub-big">2023</span>
+              <span class="stub-bottom">Dec '24</span>
+            </div>
+            <div class="ticket-body">
+              <span class="ticket-label">Teaching</span>
+              <h3 class="card-title">Undergraduate Teaching Assistant</h3>
+              <p class="card-subtitle"><a href="https://www.umass.edu/engineering/" target="_blank" rel="noopener noreferrer">College of Engineering, UMass Amherst</a> · Sept 2023 – Dec 2024</p>
               <div class="tech-tags">
                 <div class="tag">MATLAB</div>
                 <div class="tag">Excel</div>
                 <div class="tag">Python</div>
               </div>
               <ul class="card-list">
-                <li>Helped 150+ students by conducting weekly office hours and debugging their Python & MATLAB assignments</li>
+                <li>Helped 150+ students by conducting weekly office hours and debugging their Python &amp; MATLAB assignments</li>
                 <li>Assisted students by breaking down assignment problems into clear steps and explaining the question</li>
                 <li>Handled course logistics such as grading, student coordination, and communicating common issues to instructor</li>
               </ul>
             </div>
-          </div>
+          </article>
 
-          <!-- Timeline Item 2  -->
-          <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="card">
-              <div class="card-header">
-                
-                <div class="card-title-container">
-                  <h3 class="card-title">Software Engineer Intern</h3>
-                  <div class="card-subtitle">
-                    <a href="https://www.sonet.io" target="_blank">Sonet.io</a>
-                  </div>
-                </div>
-                <div class="card-date">May 2024 – Aug 2024</div>
-              </div>
+          <!-- Ticket 3 -->
+          <article class="ticket ticket-alt" data-aos="fade-up" data-aos-delay="100">
+            <div class="ticket-stub">
+              <span class="stub-top">May</span>
+              <span class="stub-big">2024</span>
+              <span class="stub-bottom">Aug '24</span>
+            </div>
+            <div class="ticket-body">
+              <span class="ticket-label">Internship</span>
+              <h3 class="card-title">Software Engineer Intern</h3>
+              <p class="card-subtitle"><a href="https://www.sonet.io" target="_blank" rel="noopener noreferrer">Sonet.io</a> · May 2024 – Aug 2024</p>
               <div class="tech-tags">
                 <div class="tag">PowerShell</div>
                 <div class="tag">Bash</div>
                 <div class="tag">Kubernetes</div>
               </div>
               <ul class="card-list">
-                <li> Cut manual setup time by 7% by engineering PowerShell scripts to automate installs on 50+ remote machines </li>
-                <li> Increased log access speed by 8% by building Kubernetes monitoring scripts for 10+ applications across 3+ clusters </li>
-                <li> Improved system and storage efficiency by 5% through logout scripts that deleted guest-created data</li>
+                <li>Cut manual setup time by 7% by engineering PowerShell scripts to automate installs on 50+ remote machines</li>
+                <li>Increased log access speed by 8% by building Kubernetes monitoring scripts for 10+ applications across 3+ clusters</li>
+                <li>Improved system and storage efficiency by 5% through logout scripts that deleted guest-created data</li>
               </ul>
             </div>
-          </div>
+          </article>
 
-          <!-- Timeline Item 4 -->
-          <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title-container">
-                  <h3 class="card-title">Software Engineering Intern</h3>
-                  <div class="card-subtitle">
-                    <a href="https://www.samsungsds.com/in/index.html" target="_blank">Samsung Data Systems</a>
-                  </div>
-                </div>
-                <div class="card-date">May 2023 – Aug 2023</div>
-              </div>
+          <!-- Ticket 4 -->
+          <article class="ticket" data-aos="fade-up" data-aos-delay="200">
+            <div class="ticket-stub">
+              <span class="stub-top">May</span>
+              <span class="stub-big">2023</span>
+              <span class="stub-bottom">Aug '23</span>
+            </div>
+            <div class="ticket-body">
+              <span class="ticket-label">Internship</span>
+              <h3 class="card-title">Software Engineering Intern</h3>
+              <p class="card-subtitle"><a href="https://www.samsungsds.com/in/index.html" target="_blank" rel="noopener noreferrer">Samsung Data Systems</a> · May 2023 – Aug 2023</p>
               <div class="tech-tags">
-                <div class="tag">Natural Language Processing (NLP)</div>
+                <div class="tag">NLP</div>
                 <div class="tag">Python</div>
                 <div class="tag">SQL</div>
               </div>
@@ -293,7 +325,7 @@
                 <li>Delivered insights to product teams that influenced market strategy and product improvement decisions</li>
               </ul>
             </div>
-          </div>  
+          </article>
         </div>
       </div>
     </section>
@@ -303,7 +335,7 @@
       <div class="container">
         <div class="section-head" data-aos="fade-up">
           <span class="eyebrow">Projects</span>
-          <h2>Things I've built</h2>
+          <h2>Things I've built<span class="accent-dot">.</span> <em class="serif">Click one.</em></h2>
         </div>
 
         <div class="project-filters" data-aos="fade-up">
@@ -489,75 +521,82 @@
     <!-- Skills Section -->
     <section id="skills">
       <div class="container">
-        <div class="section-head" data-aos="fade-up">
-          <span class="eyebrow">Skills</span>
-          <h2>What I work with</h2>
-        </div>
-        <div class="skills-container" data-aos="fade-up" data-aos-delay="100">
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h3>Languages</h3>
-              <div class="skill-list">
-                <div class="skill-item">Python</div>
-                <div class="skill-item">C/C++</div>
-                <div class="skill-item">SQL</div>
-                <div class="skill-item">PowerShell</div>
-                <div class="skill-item">Bash</div>
-              </div>
-            </div>
-    
-            <div class="skill-category">
-              <h3>Frameworks & Libraries</h3>
-              <div class="skill-list">
-                <div class="skill-item">TensorFlow</div>
-                <div class="skill-item">PyTorch</div>
-                <div class="skill-item">JAX</div>
-                <div class="skill-item">Scikit-Learn</div>
-                <div class="skill-item">Hugging Face Transformer</div>
-                <div class="skill-item">LangChain</div>
-              </div>
-            </div>
-    
-            <div class="skill-category">
-              <h3>Technologies & Tools</h3>
-              <div class="skill-list">
-                <div class="skill-item">Kubernetes</div>
-                <div class="skill-item">Docker</div>
-                <div class="skill-item">OpenAI API</div>
-                <div class="skill-item">Hugging Face</div>
-              </div>
-            </div>
-    
-            <div class="skill-category">
-              <h3>Cloud development</h3>
-              <div class="skill-list">
-                <div class="skill-item">Azure</div>
-                <div class="skill-item">AWS</div>
-                <div class="skill-item">GCP</div>
-              </div>
-            </div>
-    
-            <div class="skill-category">
-              <h3>Hardware</h3>
-              <div class="skill-list">
-                <div class="skill-item">Arduino Uno</div>
-                <div class="skill-item">ATmega328P</div>
-                <div class="skill-item">BeagleBone Black</div>
-                <div class="skill-item">DE1-SoC</div>
-                <div class="skill-item">ESP32</div>
-                <div class="skill-item">FPGAs</div>
-                <div class="skill-item">HoloLens 2</div>
-                <div class="skill-item">Raspberry Pi Pico 2</div>
-              </div>
-            </div>
-    
-            <div class="skill-category">
-              <h3>Certifications</h3>
-              <div class="skill-list">
-                <div class="skill-item">Microsoft Certified Azure Fundamentals (AZ-900)</div>
-              </div>
-            </div>
+        <div class="panel" data-aos="fade-up">
+          <div class="panel-intro">
+            <span class="eyebrow eyebrow-light">The toolbox</span>
+            <h2 class="panel-title">What I work with<span class="accent-dot">.</span><br /><em class="serif">Every project, every time.</em></h2>
+            <p class="panel-text">Languages, frameworks, cloud and hardware I reach for first.</p>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="link-underline link-underline-light">Read the full resume</a>
           </div>
+          <ol class="rules">
+            <li class="rule">
+              <span class="rule-num">1</span>
+              <div class="rule-body">
+                <h3>Languages</h3>
+                <div class="skill-list">
+                  <span class="skill-item">Python</span>
+                  <span class="skill-item">C/C++</span>
+                  <span class="skill-item">SQL</span>
+                  <span class="skill-item">PowerShell</span>
+                  <span class="skill-item">Bash</span>
+                </div>
+              </div>
+            </li>
+            <li class="rule">
+              <span class="rule-num">2</span>
+              <div class="rule-body">
+                <h3>Frameworks &amp; libraries</h3>
+                <div class="skill-list">
+                  <span class="skill-item">TensorFlow</span>
+                  <span class="skill-item">PyTorch</span>
+                  <span class="skill-item">JAX</span>
+                  <span class="skill-item">Scikit-Learn</span>
+                  <span class="skill-item">Hugging Face Transformers</span>
+                  <span class="skill-item">LangChain</span>
+                </div>
+              </div>
+            </li>
+            <li class="rule">
+              <span class="rule-num">3</span>
+              <div class="rule-body">
+                <h3>Technologies &amp; tools</h3>
+                <div class="skill-list">
+                  <span class="skill-item">Kubernetes</span>
+                  <span class="skill-item">Docker</span>
+                  <span class="skill-item">OpenAI API</span>
+                  <span class="skill-item">Hugging Face</span>
+                </div>
+              </div>
+            </li>
+            <li class="rule">
+              <span class="rule-num">4</span>
+              <div class="rule-body">
+                <h3>Cloud</h3>
+                <div class="skill-list">
+                  <span class="skill-item">Azure</span>
+                  <span class="skill-item">AWS</span>
+                  <span class="skill-item">GCP</span>
+                  <span class="skill-item">Azure Fundamentals (AZ-900)</span>
+                </div>
+              </div>
+            </li>
+            <li class="rule">
+              <span class="rule-num">5</span>
+              <div class="rule-body">
+                <h3>Hardware</h3>
+                <div class="skill-list">
+                  <span class="skill-item">Arduino Uno</span>
+                  <span class="skill-item">ATmega328P</span>
+                  <span class="skill-item">BeagleBone Black</span>
+                  <span class="skill-item">DE1-SoC</span>
+                  <span class="skill-item">ESP32</span>
+                  <span class="skill-item">FPGAs</span>
+                  <span class="skill-item">HoloLens 2</span>
+                  <span class="skill-item">Raspberry Pi Pico 2</span>
+                </div>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -569,19 +608,20 @@
           <div class="contact-info">
             <div class="section-head" data-aos="fade-up">
               <span class="eyebrow">Contact</span>
-              <h2>Let's build something<span class="accent-dot">.</span></h2>
+              <h2>Let's build something<span class="accent-dot">.</span> <em class="serif">Say hi.</em></h2>
             </div>
             <p data-aos="fade-up" data-aos-delay="100">
-              Feel free to reach out if you'd like to discuss potential collaborations or just want to connect.
+              Collaborations, questions, or just a hello. I read everything and reply to most of it.
             </p>
+            <a href="mailto:yavrohatgi03@gmail.com" class="contact-email" data-aos="fade-up" data-aos-delay="150">yavrohatgi03@gmail.com</a>
             <div class="social-links" data-aos="fade-up" data-aos-delay="200">
               <a href="mailto:yavrohatgi03@gmail.com" class="social-link" aria-label="Email">
                 <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
               </a>
-              <a href="https://github.com/yavrohatgi" target="_blank" class="social-link" aria-label="GitHub">
+              <a href="https://github.com/yavrohatgi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
                 <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
               </a>
-              <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" class="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/yav-rohatgi/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                 <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
               </a>
             </div>
@@ -616,7 +656,9 @@
     <footer>
       <div class="container">
         <div class="footer-bottom">
-          <p>&copy; 2025 Yav Rohatgi. All rights reserved.</p>
+          <a href="#" class="logo">yav rohatgi<span class="accent-dot">.</span></a>
+          <p>&copy; 2025 Yav Rohatgi · Built by hand with plain HTML, CSS and JS</p>
+          <a href="https://github.com/yavrohatgi/yavrohatgi.github.io" target="_blank" rel="noopener noreferrer" class="link-underline">Source</a>
         </div>
       </div>
     </footer>
